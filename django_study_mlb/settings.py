@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'bookstore.apps.BookstoreConfig',
     'rest_framework',
-    'corshraders'
+    'corsheaders'
 
 
 
