@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>所有代码</title>
+    <link rel="stylesheet" href="../static/plugins/bootstrap-4.6.2/css/bootstrap.css"/>
+    <link rel="stylesheet" href="../static/plugins/fontawesome/css/fontawesome.css"/>
+</head>
+<body>
+
+<table class="table table-dark">
+    <thead>
+    <tr>
+        <th>id</th>
+        <th>code</th>
+        <th>name</th>
+        <th>area</th>
+        <th>industry</th>
+        <th>list_date</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    {% for code in all_codes %}
+        <tr>
+            <th scope="row">{{ code.id }}</th>
+            <td>{{ code.code }}</td>
+            <td>{{ code.name }}</td>
+            <td>{{ code.area }}</td>
+            <td>{{ code.industry }}</td>
+            <td>{{ code.list_date }}</td>
+
+        </tr>
+    {% endfor %}
+
+    </tbody>
+</table>
+
+
+<script src="../static/plugins/bootstrap-4.6.2/js/bootstrap.bundle.js"></script>
+<script src="../static/plugins/jQuery.js"></script>
+<script src="../static/plugins/bootstrap-4.6.2/js/bootstrap.js"></script>
+</body>
+</html></title>
+</head>
+<body>
+
+</body>
+</html>

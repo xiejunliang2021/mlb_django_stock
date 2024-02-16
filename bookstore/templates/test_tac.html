@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>测试分页</title>
+</head>
+<body>
+<!--
+<table class="table table-dark">
+
+    <thead>
+    <tr>
+        <th>id</th>
+        <th>ts_code</th>
+        <th>trade_date</th>
+        <th>buy_01</th>
+        <th>buy_02</th>
+        <th>stop_win</th>
+        <th>stop_loss</th>
+        <th>name</th>
+    </tr>
+    </thead>
+
+    -->
+{% for code in data_list %}
+<p>{{ code }}</p>
+    <p>{{ code.1 }}</p>
+    <p>{{ code.ts_code }}</p>
+
+{% endfor %}
+    <div>
+        {% if c_page.has_previous %}
+            <a href="/test_tac?page={{ c_page.previous_page_number }}">上一页</a>
+        {% else %}
+            上一页
+        {% endif %}
+
+        {% for p_num in paginator.page_range %}
+            {% if p_num == c_page.number %}
+                {{ p_num }}
+            {% else %}
+                <a href="/test_tac?page={{ p_num }}">{{ p_num }}</a>
+            {% endif %}
+        {% endfor %}
+    </div>
+    <script src="../static/plugins/bootstrap-4.6.2/js/bootstrap.bundle.js"></script>
+    <script src="../static/plugins/jQuery.js"></script>
+    <script src="../static/plugins/bootstrap-4.6.2/js/bootstrap.js"></script>
+</body>
+</html>

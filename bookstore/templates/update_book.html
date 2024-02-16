@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>更改数据</title>
+</head>
+<body>
+欢迎来到更新页面
+
+<form action="/update_book/{{ book.id }}" method="post">
+    {% csrf_token %}
+    <p>
+        title <input type="text" value="{{ book.title }}" disabled="disabled">
+    </p>
+    <p>
+        pub <input type="text" value="{{ book.info }}" disabled="disabled" >
+    </p>
+    <p>
+        price <input type="text" value="{{ book.price }}" name="price">
+    </p>
+    <p>
+        market_price <input type="text" value="{{ book.market_price }}" name="market_price">
+    </p>
+    <p>
+        <input type="submit" value="提交更新">
+    </p>
+
+
+</form>
+
+
+
+</body>
+</html>
