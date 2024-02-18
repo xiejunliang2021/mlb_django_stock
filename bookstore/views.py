@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
+from rest_framework.response import Response
+
 from bookstore.models import Book, Tactics, Code
 from django.core.paginator import Paginator
 from django.forms import model_to_dict
@@ -9,6 +11,7 @@ from django.forms import model_to_dict
 
 def index(request):
     return render(request, 'index.html')
+
 
 def all_book(request):
     all_books = Book.objects.filter(is_active=True)
@@ -81,3 +84,25 @@ def all_tactics(request):
 
     return render(request, 'all_tactics.html', locals())
 
+
+from rest_framework.generics import GenericAPIView
+from rest_framework import serializers
+from rest_framework.mixins import ListModelMixin, CreateModelMixin, UpdateModelMixin, RetrieveModelMixin, \
+    DestroyModelMixin
+from rest_framework.generics import ListCreateAPIView, RetrieveAPIView
+
+
+class TacticsSerializers(serializers.ModelSerializer):
+    class Meta:
+        model = Tactics
+        fields = "__all__"
+
+
+class TacticsView(ListCreateAPIView):
+    queryset = Tactics.objects.all()
+    serializer_class = TacticsSerializers
+
+
+class TacticsDetailView(RetrieveAPIView):
+    queryset = Tactics.objects.all()
+    serializer_class = TacticsSerializers

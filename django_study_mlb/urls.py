@@ -37,4 +37,6 @@ urlpatterns = [
     path('tactics', bookstore.views.all_tactics),
     # path('test_page', bookstore.views.test_page),
     # path('test_tac', bookstore.views.test_tactics)
+    path("api/stocks/", bookstore.views.TacticsView.as_view()),
+    path("api/stock/(?P<pk>\d+)", bookstore.views.TacticsDetailView.as_view())
 ]
