@@ -35,8 +35,6 @@ urlpatterns = [
     path("all_code", bookstore.views.all_code),
     path('login', bookstore.views.login),
     path('tactics', bookstore.views.all_tactics),
-    # path('test_page', bookstore.views.test_page),
-    # path('test_tac', bookstore.views.test_tactics)
     path("api/stocks/", bookstore.views.TacticsView.as_view()),
     re_path("api/stock/(?P<pk>\d+)", bookstore.views.TacticsDetailView.as_view())
 ]

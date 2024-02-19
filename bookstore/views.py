@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
-from rest_framework.response import Response
+from rest_framework import serializers
+from rest_framework.generics import ListCreateAPIView, RetrieveAPIView
+from rest_framework.viewsets import GenericViewSet
 
 from bookstore.models import Book, Tactics, Code
 from django.core.paginator import Paginator
@@ -83,13 +85,6 @@ def all_tactics(request):
         data_list.append(mode_to)
 
     return render(request, 'all_tactics.html', locals())
-
-
-from rest_framework.generics import GenericAPIView
-from rest_framework import serializers
-from rest_framework.mixins import ListModelMixin, CreateModelMixin, UpdateModelMixin, RetrieveModelMixin, \
-    DestroyModelMixin
-from rest_framework.generics import ListCreateAPIView, RetrieveAPIView
 
 
 class TacticsSerializers(serializers.ModelSerializer):
